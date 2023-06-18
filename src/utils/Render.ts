@@ -1,7 +1,15 @@
-function Render(elements: HTMLElement[], root: Element | null): void {
-  for (const element of elements) {
-    root?.appendChild(element);
+class Renderer {
+  root: Element | null;
+
+  constructor() {
+    this.root = document.querySelector("#root");
+  }
+
+  Render(...elements: HTMLElement[]): void {
+    for (const element of elements) {
+      this.root?.appendChild(element);
+    }
   }
 }
 
-export default Render;
+export default Renderer;
