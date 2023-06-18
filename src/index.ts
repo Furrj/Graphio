@@ -2,7 +2,7 @@ import "./app";
 import "./css/index.css";
 import Renderer from "./utils/Renderer";
 import Component from "./utils/Component";
-import DraggableComponent from "./utils/Draggable";
+import DraggableComponent from "./utils/DraggableComponent";
 
 // COMPS
 import Vertex from "./comps/Vertex";
