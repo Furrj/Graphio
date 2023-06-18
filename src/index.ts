@@ -1,9 +1,8 @@
 import "./app";
-import "./css/app.css";
+import "./css/index.css";
 import Renderer from "./utils/Render";
 
 //COMPS
-import Button from "./Button";
 
 const renderer: Renderer = new Renderer();
 
