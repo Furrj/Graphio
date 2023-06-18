@@ -26,7 +26,10 @@ class Component {
     this.y += y;
   }
 
-  public subscribeToEvent(eventType: string, callback: () => void): void {
+  public subscribeToEvent(
+    eventType: string,
+    callback: (event: any) => void
+  ): void {
     this.element.addEventListener(eventType, callback);
   }
 
