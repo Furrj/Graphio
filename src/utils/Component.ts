@@ -33,6 +33,10 @@ class Component {
     this.element.addEventListener(eventType, callback);
   }
 
+  public addChild(child: Component): void {
+    this.element.appendChild(child.getComponent());
+  }
+
   public getComponent(): HTMLElement {
     this.element.style.left = `${this.x}px`;
     this.element.style.top = `${this.y}px`;
