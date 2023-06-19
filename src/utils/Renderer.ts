@@ -7,7 +7,7 @@ class Renderer {
     this.root = document.querySelector("#root");
   }
 
-  Render(...elements: Component[]): void {
+  public render(...elements: Component[]): void {
     for (const element of elements) {
       this.root?.appendChild(element.getComponent());
     }

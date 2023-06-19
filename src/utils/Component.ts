@@ -1,12 +1,15 @@
 import { Vector2 } from "./types";
+import Renderer from "./Renderer";
 
 class Component {
   private element: HTMLElement;
   private x: number = 200;
   private y: number = 200;
+  private renderer: Renderer;
 
-  constructor(element: HTMLElement) {
+  constructor(element: HTMLElement, renderer: Renderer) {
     this.element = element;
+    this.renderer = renderer;
   }
 
   public getPosition(): Vector2 {
@@ -23,11 +26,26 @@ class Component {
     this.y += y;
   }
 
+  public subscribeToEvent(
+    eventType: string,
+    callback: (event: any) => void
+  ): void {
+    this.element.addEventListener(eventType, callback);
+  }
+
+  public addChild(child: Component): void {
+    this.element.appendChild(child.getComponent());
+  }
+
   public getComponent(): HTMLElement {
     this.element.style.left = `${this.x}px`;
     this.element.style.top = `${this.y}px`;
 
     return this.element;
+  }
+
+  public renderComponent() {
+    this.renderer.render(this);
   }
 }
 
