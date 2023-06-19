@@ -13,7 +13,8 @@ const renderer: Renderer = new Renderer();
 const app: Component = new Component(App("app"), renderer);
 const vertex: DraggableComponent = new DraggableComponent(
   Vertex("one"),
-  renderer
+  renderer,
+  app
 );
 app.addChild(vertex);
 
