@@ -1,6 +1,6 @@
 import Component from "./Component";
-import Renderer from "./Renderer";
-import { Vector2 } from "./types";
+import Renderer from "../rendering/Renderer";
+import { Vector2 } from "../../utils/types";
 
 class DraggableComponent extends Component {
   private initalPosition: Vector2 = { x: 0, y: 0 };

@@ -1,4 +1,4 @@
-import Component from "./Component";
+import Component from "../comps/Component";
 
 class Renderer {
   root: Element | null;
