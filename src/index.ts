@@ -1,8 +1,8 @@
 import App from "./comps/App";
 import "./css/index.css";
-import Renderer from "./Classes/Renderer";
-import Component from "./Classes/Component";
-import DraggableComponent from "./Classes/DraggableComponent";
+import Renderer from "./classes/Renderer";
+import Component from "./classes/comps/Component";
+import DraggableComponent from "./classes/comps/DraggableComponent";
 
 // COMPS
 import Vertex from "./comps/Vertex";
