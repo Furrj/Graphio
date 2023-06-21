@@ -31,8 +31,8 @@ body {
   position: absolute;
 }
 
-#two {
+.btn {
   width: 100px;
-  height: 100px;
-  background: blue;
+  height: 50px;
+  background-color: blue;
 }
