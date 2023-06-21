@@ -1,5 +1,3 @@
-import { Vector2 } from "../../utils/types";
-
 class Component {
   private element: HTMLElement;
 
