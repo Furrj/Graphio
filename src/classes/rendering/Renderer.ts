@@ -9,7 +9,7 @@ class Renderer {
 
   public render(...elements: Component[]): void {
     for (const element of elements) {
-      this.root?.appendChild(element.getComponent());
+      this.root?.appendChild(element.getElement());
     }
   }
 }

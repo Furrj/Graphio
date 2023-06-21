@@ -6,18 +6,31 @@ class DraggableComponent extends Component {
   private currentPosition: Vector2 = { x: 0, y: 0 };
   private offset: Vector2 = { x: 0, y: 0 };
   private isDragging: boolean = false;
-  private parent: HTMLElement;
+  private parent: HTMLElement | null = null;
 
-  constructor(element: HTMLElement, parent: Component) {
+  constructor(element: HTMLElement) {
     super(element);
-    this.parent = parent.getComponent();
     this.enableDragging();
   }
 
+  public setParent(parent: HTMLElement) {
+    this.parent = parent;
+  }
+
+  public getCurrentPosition(): Vector2 {
+    return this.currentPosition;
+  }
+
   private enableDragging(): void {
-    this.parent.addEventListener("mousedown", (event) => this.dragStart(event));
-    this.parent.addEventListener("mouseup", (event) => this.dragEnd(event));
-    this.parent.addEventListener("mousemove", (event) => this.drag(event));
+    if (this.parent) {
+      this.parent.addEventListener("mousedown", (event) =>
+        this.dragStart(event)
+      );
+      this.parent.addEventListener("mouseup", (event) => this.dragEnd(event));
+      this.parent.addEventListener("mousemove", (event) => this.drag(event));
+    } else {
+      console.log(`No parent found for ${this.getElement()?.id}`);
+    }
   }
 
   private dragStart(event: MouseEvent): void {
@@ -27,7 +40,7 @@ class DraggableComponent extends Component {
         y: event.clientY - this.offset.y,
       };
 
-      if (event.target === this.getComponent()) {
+      if (event.target === this.getElement()) {
         this.isDragging = true;
       }
     }
@@ -47,7 +60,7 @@ class DraggableComponent extends Component {
         y: this.currentPosition.y,
       };
 
-      this.getComponent().style.transform =
+      this.getElement().style.transform =
         "translate3d(" +
         this.currentPosition.x +
         "px, " +
