@@ -1,17 +1,22 @@
 import App from "./comps/App";
 import "./css/index.css";
+
+// FUNC
 import Renderer from "./classes/rendering/Renderer";
 
 // COMPS
 import VertexComp from "./comps/Vertex";
-import Button from "./comps/Button";
 
 // INIT FUNC
 const renderer: Renderer = new Renderer();
 
 // INIT COMPS
-const vertex = new VertexComp();
+const app = new App();
+const vertex = new VertexComp(app);
 
 // LINKING
+app.addChild(vertex);
+vertex.setParent(app);
 
-renderer.render(vertex);
+// RENDERING
+renderer.render(app);

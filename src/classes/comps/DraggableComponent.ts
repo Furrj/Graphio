@@ -6,14 +6,15 @@ class DraggableComponent extends Component {
   private currentPosition: Vector2 = { x: 0, y: 0 };
   private offset: Vector2 = { x: 0, y: 0 };
   private isDragging: boolean = false;
-  private parent: HTMLElement | null = null;
+  private parent: Component;
 
-  constructor(element: HTMLElement) {
+  constructor(element: HTMLElement, parent: Component) {
     super(element);
+    this.parent = parent;
     this.enableDragging();
   }
 
-  public setParent(parent: HTMLElement) {
+  public setParent(parent: Component) {
     this.parent = parent;
   }
 
@@ -22,15 +23,15 @@ class DraggableComponent extends Component {
   }
 
   private enableDragging(): void {
-    if (this.parent) {
-      this.parent.addEventListener("mousedown", (event) =>
-        this.dragStart(event)
-      );
-      this.parent.addEventListener("mouseup", (event) => this.dragEnd(event));
-      this.parent.addEventListener("mousemove", (event) => this.drag(event));
-    } else {
-      console.log(`No parent found for ${this.getElement()?.id}`);
-    }
+    this.parent
+      .getElement()
+      .addEventListener("mousedown", (event) => this.dragStart(event));
+    this.parent
+      .getElement()
+      .addEventListener("mouseup", (event) => this.dragEnd(event));
+    this.parent
+      .getElement()
+      .addEventListener("mousemove", (event) => this.drag(event));
   }
 
   private dragStart(event: MouseEvent): void {
