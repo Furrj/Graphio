@@ -1,5 +1,4 @@
 import Component from "./Component";
-import Renderer from "../rendering/Renderer";
 import { Vector2 } from "../../utils/types";
 
 class DraggableComponent extends Component {
@@ -9,8 +8,8 @@ class DraggableComponent extends Component {
   private isDragging: boolean = false;
   private parent: HTMLElement;
 
-  constructor(element: HTMLElement, renderer: Renderer, parent: Component) {
-    super(element, renderer);
+  constructor(element: HTMLElement, parent: Component) {
+    super(element);
     this.parent = parent.getComponent();
     this.enableDragging();
   }
