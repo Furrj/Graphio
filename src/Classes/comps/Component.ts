@@ -1,5 +1,5 @@
 import { Vector2 } from "../../utils/types";
-import Renderer from "../Renderer";
+import Renderer from "../rendering/Renderer";
 
 class Component {
   private element: HTMLElement;
