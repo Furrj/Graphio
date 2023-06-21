@@ -1,15 +1,12 @@
 import { Vector2 } from "../../utils/types";
-import Renderer from "../rendering/Renderer";
 
 class Component {
   private element: HTMLElement;
   private x: number = 200;
   private y: number = 200;
-  private renderer: Renderer;
 
-  constructor(element: HTMLElement, renderer: Renderer) {
+  constructor(element: HTMLElement) {
     this.element = element;
-    this.renderer = renderer;
   }
 
   public getPosition(): Vector2 {
@@ -42,10 +39,6 @@ class Component {
     this.element.style.top = `${this.y}px`;
 
     return this.element;
-  }
-
-  public renderComponent() {
-    this.renderer.render(this);
   }
 }
 

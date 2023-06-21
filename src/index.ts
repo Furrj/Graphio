@@ -10,12 +10,9 @@ import Vertex from "./comps/Vertex";
 // INIT
 const renderer: Renderer = new Renderer();
 
-const app: Component = new Component(App("app"), renderer);
-const vertex: DraggableComponent = new DraggableComponent(
-  Vertex("one"),
-  renderer,
-  app
-);
+const app: Component = new Component(App("app"));
+const vertex: DraggableComponent = new DraggableComponent(Vertex("one"), app);
+
 app.addChild(vertex);
 
 renderer.render(app);
