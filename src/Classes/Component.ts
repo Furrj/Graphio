@@ -1,4 +1,4 @@
-import { Vector2 } from "./types";
+import { Vector2 } from "../utils/types";
 import Renderer from "./Renderer";
 
 class Component {
