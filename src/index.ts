@@ -18,4 +18,4 @@ app.addChild(vertex);
 vertex.setParent(app);
 
 // RENDERING
-renderer.render(app);
+renderer.render();
