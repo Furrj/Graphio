@@ -27,7 +27,7 @@ class State {
     return this.vertexes;
   }
 
-  private addVertex(vertex: Vertex): void {
+  public addVertex(vertex: Vertex): void {
     this.vertexes.push(vertex);
   }
 }

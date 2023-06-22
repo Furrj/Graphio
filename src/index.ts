@@ -11,10 +11,7 @@ import Vertex from "./comps/Vertex";
 const { state, renderer, app } = init();
 
 // INIT COMPS
-const vertex: Vertex = new Vertex(app);
-
-// LINKING
-app.addChild(vertex);
+const vertex: Vertex = new Vertex(app, state);
 
 // RENDERING
 renderer.render();
