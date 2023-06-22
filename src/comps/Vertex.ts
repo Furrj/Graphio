@@ -1,9 +1,12 @@
-const Vertex = (id: string): HTMLDivElement => {
-  const vertex = document.createElement("div");
-  vertex.id = id;
-  vertex.style.left = `${200}px`;
-  vertex.style.top = `${200}px`;
-  return vertex;
-};
+import Component from "../classes/comps/Component";
+import DraggableComponent from "../classes/comps/DraggableComponent";
+import State from "../state/State";
+
+class Vertex extends DraggableComponent {
+  constructor(parent: Component, state: State) {
+    super(document.createElement("div"), parent);
+    this.getElement().className = "vertex";
+  }
+}
 
 export default Vertex;

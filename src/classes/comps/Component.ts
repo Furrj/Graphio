@@ -1,3 +1,5 @@
+import State from "../../state/State";
+
 class Component {
   private element: HTMLElement;
 
@@ -5,18 +7,7 @@ class Component {
     this.element = element;
   }
 
-  public subscribeToEvent(
-    eventType: string,
-    callback: (event: any) => void
-  ): void {
-    this.element.addEventListener(eventType, callback);
-  }
-
-  public addChild(child: Component): void {
-    this.element.appendChild(child.getComponent());
-  }
-
-  public getComponent(): HTMLElement {
+  public getElement(): HTMLElement {
     return this.element;
   }
 }

@@ -1,15 +1,30 @@
 import Component from "../comps/Component";
+import State from "../../state/State";
+import App from "../../comps/App";
 
 class Renderer {
-  root: Element | null;
+  private root: HTMLElement | null;
+  private state: State;
+  private app: App;
 
-  constructor() {
+  constructor(state: State) {
     this.root = document.querySelector("#root");
+    this.state = state;
+    this.app = new App();
   }
 
-  public render(...elements: Component[]): void {
-    for (const element of elements) {
-      this.root?.appendChild(element.getComponent());
+  public getApp(): App {
+    return this.app;
+  }
+
+  public render(): void {
+    this.linkVertexes();
+    this.root?.appendChild(this.app.getElement());
+  }
+
+  private linkVertexes(): void {
+    for (const vertex of this.state.getVertexes()) {
+      this.app.addChild(vertex);
     }
   }
 }

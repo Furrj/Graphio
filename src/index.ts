@@ -1,29 +1,18 @@
 import App from "./comps/App";
 import "./css/index.css";
-import Renderer from "./classes/rendering/Renderer";
-import Component from "./classes/comps/Component";
-import DraggableComponent from "./classes/comps/DraggableComponent";
+
+// FUNC
+import init from "./utils/init";
 
 // COMPS
 import Vertex from "./comps/Vertex";
-import Button from "./comps/Button";
+import SpawnButton from "./comps/SpawnButton";
 
 // INIT FUNC
-const renderer: Renderer = new Renderer();
+const { state, renderer, app } = init();
 
 // INIT COMPS
-const app: Component = new Component(App("app"));
-const vertex: DraggableComponent = new DraggableComponent(Vertex("one"), app);
-const spawnButton: Component = new Component(Button("spawnBtn", addVertex));
+const spawnBtn: SpawnButton = new SpawnButton(state);
 
-function addVertex(): void {
-  const vertex: DraggableComponent = new DraggableComponent(Vertex("one"), app);
-  app.addChild(vertex);
-  renderer.render(app);
-}
-
-// LINKING
-app.addChild(vertex);
-app.addChild(spawnButton);
-
-renderer.render(app);
+// RENDERING
+renderer.render();
