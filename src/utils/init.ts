@@ -10,7 +10,7 @@ type initReturn = {
 
 const init = (): initReturn => {
   const state: State = new State();
-  const renderer: Renderer = new Renderer(state);
+  const renderer: Renderer = state.getRenderer();
   const app: App = renderer.getApp();
   return {
     state,

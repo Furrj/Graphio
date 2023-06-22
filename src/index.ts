@@ -15,7 +15,6 @@ const vertex: Vertex = new Vertex(app);
 
 // LINKING
 app.addChild(vertex);
-vertex.setParent(app);
 
 // RENDERING
 renderer.render();

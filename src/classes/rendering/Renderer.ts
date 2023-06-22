@@ -18,7 +18,14 @@ class Renderer {
   }
 
   public render(): void {
+    this.linkVertexes();
     this.root?.appendChild(this.app.getElement());
+  }
+
+  private linkVertexes(): void {
+    for (const vertex of this.state.getVertexes()) {
+      this.app.addChild(vertex);
+    }
   }
 }
 
