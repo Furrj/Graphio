@@ -1,10 +1,13 @@
 import Component from "../comps/Component";
+import State from "../../state/State";
 
 class Renderer {
-  root: Element | null;
+  private root: HTMLElement | null;
+  private state: State;
 
-  constructor() {
+  constructor(state: State) {
     this.root = document.querySelector("#root");
+    this.state = state;
   }
 
   public render(...elements: Component[]): void {
