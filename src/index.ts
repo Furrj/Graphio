@@ -3,18 +3,15 @@ import "./css/index.css";
 
 // FUNC
 import init from "./utils/init";
-import Renderer from "./classes/rendering/Renderer";
-import State from "./state/State";
 
 // COMPS
 import Vertex from "./comps/Vertex";
 
 // INIT FUNC
-const { state, renderer } = init();
+const { state, renderer, app } = init();
 
 // INIT COMPS
-const app = new App();
-const vertex = new Vertex(app);
+const vertex: Vertex = new Vertex(app);
 
 // LINKING
 app.addChild(vertex);
