@@ -5,8 +5,7 @@ import State from "../state/State";
 class Vertex extends DraggableComponent {
   constructor(parent: Component, state: State) {
     super(document.createElement("div"), parent);
-    this.getElement().id = "one";
-    state.addVertex(this);
+    this.getElement().className = "vertex";
   }
 }
 

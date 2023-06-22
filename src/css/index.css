@@ -24,14 +24,14 @@ body {
   border-radius: 5px;
 }
 
-#one {
+.vertex {
   width: 100px;
   height: 100px;
   background: red;
   position: absolute;
 }
 
-.btn {
+#btn {
   width: 100px;
   height: 50px;
   background-color: blue;

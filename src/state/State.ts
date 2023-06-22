@@ -1,15 +1,20 @@
 import App from "../comps/App";
 import Vertex from "../comps/Vertex";
 import Renderer from "../classes/rendering/Renderer";
+import VertexSpawner from "./VertexSpawner";
 
 class State {
   private root: HTMLElement | null = null;
   private vertexes: Vertex[] = [];
   private renderer: Renderer;
+  private app: App;
+  private vertexSpawner: VertexSpawner;
 
   constructor() {
     this.setRoot();
     this.renderer = new Renderer(this);
+    this.app = this.renderer.getApp();
+    this.vertexSpawner = new VertexSpawner(this, this.app);
   }
 
   private setRoot(): boolean {
@@ -27,8 +32,13 @@ class State {
     return this.vertexes;
   }
 
-  public addVertex(vertex: Vertex): void {
+  private addVertex(vertex: Vertex): void {
     this.vertexes.push(vertex);
+    this.renderer.render();
+  }
+
+  public spawnVertex(): void {
+    this.addVertex(this.vertexSpawner.spawnVertex());
   }
 }
 
