@@ -8,10 +8,16 @@ class Vertex extends DraggableComponent {
     this.getElement().className = "vertex";
     const nodeTop = new Node();
     const nodeBottom = new Node();
+    const nodeLeft = new Node();
+    const nodeRight = new Node();
     nodeTop.getElement().classList.add("top");
     nodeBottom.getElement().classList.add("bottom");
+    nodeLeft.getElement().classList.add("left");
+    nodeRight.getElement().classList.add("right");
     this.getElement().appendChild(nodeTop.getElement());
     this.getElement().appendChild(nodeBottom.getElement());
+    this.getElement().appendChild(nodeLeft.getElement());
+    this.getElement().appendChild(nodeRight.getElement());
   }
 }
 
