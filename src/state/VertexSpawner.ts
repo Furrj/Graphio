@@ -13,7 +13,7 @@ class VertexSpawner {
   }
 
   public spawnVertex(): Vertex {
-    const newVertex = new Vertex(this.app, this.state);
+    const newVertex = new Vertex(this.app);
     newVertex.getElement().id = `vertex${this.vertexCount}`;
     this.vertexCount++;
     return newVertex;

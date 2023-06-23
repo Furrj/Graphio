@@ -1,4 +1,3 @@
-import App from "./comps/App";
 import "./css/index.css";
 
 // FUNC
