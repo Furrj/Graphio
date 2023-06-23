@@ -29,6 +29,14 @@ body {
   height: 100px;
   background: red;
   position: absolute;
+  border-radius: 50%;
+}
+
+.node {
+  width: 20px;
+  height: 20px;
+  background: black;
+  border-radius: 50%;
 }
 
 #btn {
