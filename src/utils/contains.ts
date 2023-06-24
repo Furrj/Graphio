@@ -1,7 +1,14 @@
-function contains(map: Map<string, string[]>, searchFor: string): boolean {
-  if (map.has(searchFor)) {
-    return true;
-  } else return false;
+function containsValue(
+  values: string[] | undefined,
+  searchFor: string
+): boolean {
+  if (values) {
+    for (const value of values) {
+      if (value === searchFor) return true;
+    }
+  }
+
+  return false;
 }
 
-export default contains;
+export default containsValue;

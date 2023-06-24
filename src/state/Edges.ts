@@ -1,4 +1,5 @@
 import Vertex from "../comps/Vertex";
+import containsValue from "../utils/contains";
 
 class Edges {
   private edges: Map<string, string[] | undefined> = new Map();
@@ -40,17 +41,27 @@ class Edges {
       this.currentActiveVertex = vertex;
       vertex.getElement().classList.add("activeVertex");
     } else {
+      let eligibleToAdd: boolean = true;
       this.isActiveVertex = !this.isActiveVertex;
+
       if (this.currentActiveVertex) {
-        if (this.currentActiveVertex.getId() == vertex.getId()) {
-          this.currentActiveVertex
-            .getElement()
-            .classList.remove("activeVertex");
-          this.currentActiveVertex = null;
-          return;
+        if (this.currentActiveVertex.getId() === vertex.getId()) {
+          eligibleToAdd = false;
         }
 
-        this.addEdge(this.currentActiveVertex, vertex);
+        if (
+          containsValue(
+            this.edges.get(this.currentActiveVertex.getId()),
+            vertex.getId()
+          )
+        ) {
+          eligibleToAdd = false;
+        }
+
+        if (eligibleToAdd) {
+          this.addEdge(this.currentActiveVertex, vertex);
+        }
+
         this.currentActiveVertex.getElement().classList.remove("activeVertex");
         this.currentActiveVertex = null;
       } else {
