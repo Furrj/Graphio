@@ -15,6 +15,7 @@ class VertexSpawner {
   public spawnVertex(): Vertex {
     const newVertex = new Vertex(this.app);
     newVertex.getElement().id = `vertex${this.vertexCount}`;
+    newVertex.getElement().innerHTML = `${this.vertexCount}`;
     this.vertexCount++;
     return newVertex;
   }
