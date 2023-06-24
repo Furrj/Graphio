@@ -6,6 +6,10 @@ class Vertex extends DraggableComponent {
     super(document.createElement("div"), parent);
     this.getElement().className = "vertex";
   }
+
+  public getId(): string {
+    return this.getElement().id;
+  }
 }
 
 export default Vertex;
