@@ -1,5 +1,3 @@
-import State from "../../state/State";
-
 class Component {
   private element: HTMLElement;
 

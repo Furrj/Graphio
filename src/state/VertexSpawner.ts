@@ -13,8 +13,12 @@ class VertexSpawner {
   }
 
   public spawnVertex(): Vertex {
-    const newVertex = new Vertex(this.app, this.state);
+    const newVertex = new Vertex(this.app);
     newVertex.getElement().id = `vertex${this.vertexCount}`;
+    newVertex.getElement().innerHTML = `${this.vertexCount}`;
+    newVertex.getElement().addEventListener("click", (event) => {
+      this.state.getEdgeState().handleClickEdges(event, newVertex);
+    });
     this.vertexCount++;
     return newVertex;
   }

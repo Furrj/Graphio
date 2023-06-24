@@ -2,6 +2,7 @@ import App from "../comps/App";
 import Vertex from "../comps/Vertex";
 import Renderer from "../classes/rendering/Renderer";
 import VertexSpawner from "./VertexSpawner";
+import Edges from "./Edges";
 
 class State {
   private root: HTMLElement | null = null;
@@ -9,6 +10,7 @@ class State {
   private renderer: Renderer;
   private app: App;
   private vertexSpawner: VertexSpawner;
+  private edges: Edges = new Edges();
 
   constructor() {
     this.setRoot();
@@ -39,6 +41,10 @@ class State {
 
   public spawnVertex(): void {
     this.addVertex(this.vertexSpawner.spawnVertex());
+  }
+
+  public getEdgeState(): Edges {
+    return this.edges;
   }
 }
 
